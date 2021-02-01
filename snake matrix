@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include <conio.h>
+using namespace std;
+int main() {
+
+  int input = 5;
+	int row = 7;
+	int index = 1;
+	int rowIndex = input;
+	int fillCount = (row - (rowIndex-1));
+	int element = 1;
+	int elementCount = 0;
+	int totalCount = 0;
+	bool isRight = true;
+
+	while (totalCount < 28){
+		for (int i = 0; i < row; i++) {
+		 isRight ? ((rowIndex <= index && elementCount < fillCount) ? printf("%d ", element) && element++ && elementCount++ : printf("_ ")) : (rowIndex <= index && elementCount < fillCount) ? printf("%d ", element) && element-- && elementCount++ : printf("_ ");
+			totalCount++;
+			index++;
+		}
+		isRight = !isRight;
+		(rowIndex == 1) ? (rowIndex = fillCount - rowIndex && fillCount--) : rowIndex--;
+		isRight ? (element = (element+1) + fillCount) : (element = (element-1) + fillCount);
+		elementCount = 0;
+		index = 1;
+		printf("\n");
+		
+}
+	return 0;
+
+}
